@@ -1,0 +1,242 @@
+<title>Shubhangi D. Kamble</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Layout: fixed identity column on the left, quiet reading column on the right; stacks on phones.
+   Palette: ink navy, teal accent, cool paper. Type: Plex Serif for headings, Plex Sans for text, Plex Mono for dates. */
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --fg: #16233a;
+  --muted: #55627a;
+  --line: #d9e0e8;
+  --accent: #0a6c85;
+  --accent-soft: #e2f1f5;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1522; --surface: #151f30; --fg: #e6ecf5; --muted: #9aa8bf;
+    --line: #26344a; --accent: #5cc3dc; --accent-soft: #14303b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1522; --surface: #151f30; --fg: #e6ecf5; --muted: #9aa8bf;
+  --line: #26344a; --accent: #5cc3dc; --accent-soft: #14303b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+  padding-block: 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.page { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 48px; align-items: start; }
+aside { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.mono-mark {
+  width: 84px; height: 84px; border-radius: 10px; background: var(--fg); color: var(--bg);
+  display: grid; place-items: center; font-family: var(--serif); font-weight: 600; font-size: 32px; letter-spacing: 0.02em;
+}
+h1 { font-family: var(--serif); font-weight: 600; font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; }
+.role { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; border-top: 1px solid var(--line); padding-top: 18px; }
+.facts li { display: grid; gap: 2px; min-width: 0; }
+.label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.facts span:not(.label), .facts a { overflow-wrap: anywhere; font-size: 15px; }
+.copy { font: inherit; font-size: 13px; color: var(--accent); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; cursor: pointer; justify-self: start; margin-top: 4px; }
+.copy:hover { background: var(--accent-soft); }
+.copy:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+main { display: grid; gap: 44px; min-width: 0; }
+section h2 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+p { margin: 0 0 12px; max-width: 66ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.tags li { background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; padding: 4px 12px; border-radius: 999px; }
+.entry { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 4px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.entry:last-child { border-bottom: 0; }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 3px; }
+.entry h3 { font-size: 16px; font-weight: 600; margin: 0; }
+.where { margin: 0 0 6px; color: var(--muted); font-size: 15px; }
+.entry ul, .plain { margin: 0; padding-left: 18px; }
+.entry li, .plain li { margin-bottom: 4px; max-width: 66ch; }
+.now { color: var(--accent); font-weight: 600; }
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
+.projects li { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-size: 15px; }
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.cols h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
+footer { grid-column: 1 / -1; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+@media (max-width: 800px) {
+  body { padding-block: 24px; }
+  .page { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  aside { position: static; }
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .projects, .cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <aside>
+    <div class="mono-mark" aria-hidden="true">SK</div>
+    <div>
+      <h1>Shubhangi D. Kamble</h1>
+      <p class="role">Assistant Professor<br>Computer Science and Engineering (Artificial Intelligence)</p>
+    </div>
+    <ul class="facts">
+      <li><span class="label">Institution</span><span>Vishwakarma Institute of Technology, Bibwewadi, Pune, India</span></li>
+      <li><span class="label">Ph.D.</span><span>In progress, Symbiosis International University, Pune</span></li>
+      <li>
+        <span class="label">Email</span>
+        <span id="email">shubhangi.kamble@vit.edu</span>
+        <button class="copy" id="copyBtn" type="button">Copy address</button>
+      </li>
+    </ul>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>I teach computer engineering and I am working toward a Ph.D. in machine learning. My research looks at how to train models across many devices without moving the data, using split federated learning. I am also interested in making AI agents safe and reliable for people who build them without a programming background.</p>
+      <p>I have taught for over a decade, from polytechnic diploma courses to engineering degree programmes. Alongside teaching, I have guided student projects in AI, education technology and embedded systems.</p>
+      <ul class="tags" aria-label="Research interests">
+        <li>Split federated learning</li>
+        <li>Distributed machine learning</li>
+        <li>Edge intelligence</li>
+        <li>Safe AI agents</li>
+        <li>AI for education</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="when">07/2025 to <span class="now">present</span></div>
+        <div>
+          <h3>Assistant Professor</h3>
+          <p class="where">Vishwakarma Institute of Technology, Bibwewadi, Pune</p>
+          <ul>
+            <li>Courses: Design and Analysis of Algorithms Lab, Object-Oriented Programming (theory and lab), Data Analysis Lab, Discrete Mathematics.</li>
+            <li>Roles: TimeTable Coordinator, NAAC Criteria 2 coordinator, Feedback Co-ordinator.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">12/2022 to 06/2025</div>
+        <div>
+          <h3>Assistant Professor</h3>
+          <p class="where">TSSM's Bhivarabai Sawant College of Engineering and Research, Narhe, Pune</p>
+          <ul>
+            <li>Courses: Principles of Programming Languages, Discrete Mathematics, Data Structures Lab, Machine Learning Lab, Data Science Lab.</li>
+            <li>Roles: GFM Co-ordinator, TimeTable Coordinator, NBA Criteria 4 and NAAC Criteria 2 coordinator.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">06/2011 to 04/2015</div>
+        <div>
+          <h3>Lecturer</h3>
+          <p class="where">Sharad Institute of Technology Polytechnic, Yadrav</p>
+          <ul>
+            <li>Courses: C, DBMS, Java, Advanced Java, Networking, .NET.</li>
+            <li>Roles: GFM Co-ordinator, TimeTable Coordinator, Project Incharge, NBA Department Co-ordinator, Cultural Event Co-ordinator. Served as Exam Controller at Datta Polytechnic, Shirol.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">06/2010 to 06/2011</div>
+        <div>
+          <h3>Lecturer</h3>
+          <p class="where">Y. D. Mane Polytechnic, Kagal</p>
+          <ul>
+            <li>Courses: C, DBMS. Roles: TimeTable Coordinator, Project Incharge.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="when">In progress</div>
+        <div>
+          <h3>Ph.D., Computer Engineering</h3>
+          <p class="where">Symbiosis International University, Pune</p>
+          <ul>
+            <li>Research on split federated learning. Advisor: Dr. Jitendra Rajpurohit. Coursework completed.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">M.E.</div>
+        <div>
+          <h3>Computer Engineering</h3>
+          <p class="where">Savitribai Phule Pune University &middot; CGPA 9.36</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">B.E.</div>
+        <div>
+          <h3>Computer Science and Engineering</h3>
+          <p class="where">Shivaji University</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Student projects guided</h2>
+      <ul class="projects">
+        <li>SkillForge: an AI-driven, voice-enabled platform for placement readiness and soft-skills training</li>
+        <li>Real-time simulation and black-box telemetry framework for UAVs</li>
+        <li>CodeLens: a dynamic algorithm visualization tool for education</li>
+        <li>ReportGen: a meta classifier</li>
+        <li>Root AI, The Farmer's Friend</li>
+        <li>ChronoCrypt: autonomous offline time-synchronized access code generator</li>
+        <li>Intelligent applicant screening and ranking with custom weighted scoring</li>
+      </ul>
+    </section>
+
+    <section id="more">
+      <h2>Certifications, award and skills</h2>
+      <div class="cols">
+        <div>
+          <h3>Certifications and award</h3>
+          <ul class="plain">
+            <li>NPTEL: Python for Data Science</li>
+            <li>C# .NET certification, Seed Infotech, Pune</li>
+            <li>Best Teacher 2012-13, Sharad Institute of Technology Polytechnic</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Skills</h3>
+          <ul class="plain">
+            <li>Python, Java, C, .NET, data structures</li>
+            <li>Student mentoring and admission counselling</li>
+            <li>Accreditation work for NBA and NAAC</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Personal academic profile. Not an official page of any institution.</footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyBtn');
+  var txt = document.getElementById('email');
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy address'; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(txt);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected, press copy';
+    };
+    try { navigator.clipboard.writeText(txt.textContent.trim()).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
